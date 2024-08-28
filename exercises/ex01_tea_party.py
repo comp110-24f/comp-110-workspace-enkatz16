@@ -25,7 +25,7 @@ def tea_bags(people: int) -> int:
 def treats(people: int) -> int:
     """Determine the number of treats necessary for the party based on the number of teas people drink."""
     return round(
-        tea_bags(people) * 1.5
+        (tea_bags(people=people) * 1.5)
     )  # using round function to get numbers in whole tea bags since one cannot buy half a teabag
 
 
