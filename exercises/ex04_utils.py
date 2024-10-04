@@ -3,7 +3,7 @@
 __author__: str = "730748249"
 
 
-def all(number_list: list[str], number: int) -> bool:
+def all(number_list: list[int], number: int) -> bool:
     """Matches a list to the number defined"""
     all_number: bool = True
     if len(number_list) == 0:
