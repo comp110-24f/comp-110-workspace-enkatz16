@@ -4,6 +4,7 @@ __author__: str = "730748249"
 
 
 def invert(input_dict: dict[str, str]) -> dict[str, str]:
+    """Invert dictionary keys and values"""
     temp1: str = ""
     temp2: str = ""
     output_dict: dict[str, str] = {}
@@ -22,16 +23,19 @@ def favorite_color(color_dictionary: dict[str, str]) -> str:
     color: str = ""
     values_list: list[str] = []
     tally: int = 0
+    if len(color_dictionary) == 0:
+        return color
     for vote in color_dictionary:
         values_list.append(color_dictionary[vote])
-    temporary_color: str = color_dictionary[vote]  # type: ignore
-    for item in values_list:
+    for vote in color_dictionary:
+        temporary_color: str = color_dictionary[vote]
         temp_tally: int = 0
-        if temporary_color == item:
-            temp_tally += 1
-            if temp_tally > tally:
-                tally = temp_tally
-                color = temporary_color
+        for item in values_list:
+            if temporary_color == item:
+                temp_tally += 1
+        if temp_tally > tally:
+            tally = temp_tally
+            color = temporary_color
 
     return color
 
@@ -67,9 +71,11 @@ def update_attendance(
 ) -> None:
     if day in attendance_dict:
         temp_list: list[str] = attendance_dict[day]
-        temp_list.append(student)
+        if student not in temp_list:
+            temp_list.append(student)
         attendance_dict[day] = temp_list
     else:
-        temp_list: list[str] = []
-        temp_list.append(student)
+        temp_list = []
+        if student not in temp_list:
+            temp_list.append(student)
         attendance_dict[day] = temp_list
