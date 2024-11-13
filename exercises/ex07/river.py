@@ -62,7 +62,7 @@ class River:
             additional_fish = int((len(self.fish) / 2) * 4)
         else:
             additional_fish = int(((len(self.fish) - 1) / 2) * 4)
-        for fish in range(additional_fish):
+        for fish in range(additional_fish):  # type: ignore
             new_fish: Fish = Fish()
             self.fish.append(new_fish)
         return None
@@ -74,7 +74,7 @@ class River:
             new_bears = int(len(self.bears) / 2)
         else:
             new_bears = int((len(self.bears) - 1) / 2)
-        for bear in range(new_bears):
+        for bear in range(new_bears):  # type: ignore
             new_bear: Bear = Bear()
             self.bears.append(new_bear)
         return None
